@@ -1,13 +1,7 @@
 fn main() {
-    let s1 = String::from("hello");
-
-    let (s2, len) = calculate_length(s1);
-
-    println!("The length of '{}' is {}.", s2, len);
-}
-
-fn calculate_length(s: String) -> (String, usize) {
-    let length = s.len(); // len() returns the length of a String
-
-    (s, length)
+    let x = 5;
+    let mut y = x;
+    y = 10;
+    println!("{}", y);
+    println!("{}", x)
 }

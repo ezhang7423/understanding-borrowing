@@ -29,3 +29,11 @@ Valid means that a reference will never point to an empty object. The first rule
 ## Interior mutability
 
 http://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/second-edition/ch15-05-interior-mutability.html
+
+We can make exceptions to the above rule that an object can only have one mutable reference OR any number of immutable references with interior mutability. This is done specifically with RefCell<T>, which is a type of smart pointer.
+
+Differences between Box<T>, RefCell<T>, and Rc<T>:
+
+* Rc<T> enables multiple owners of the same data; Box<T> and RefCell<T> have single owners.
+* Box<T> allows immutable or mutable borrows checked at compile time; Rc<T> only allows immutable borrows checked at compile time; RefCell<T> allows immutable or mutable borrows checked at runtime.
+* Because RefCell<T> allows mutable borrows checked at runtime, we can mutate the value inside the RefCell<T> even when the RefCell<T> is immutable.
